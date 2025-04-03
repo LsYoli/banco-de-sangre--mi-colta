@@ -207,10 +207,11 @@ void BloodDatabase::getDonorDetails() {
     cout << "Número: ";
     getline(cin, phoneNumber);
 
-    while (!validatePhoneNumber(phoneNumber)) {
-        cout << "Número inválido. Inténtelo de nuevo: ";
-        getline(cin, phoneNumber);
+    bool valido = validatePhoneNumber(phoneNumber);
+    if (!valido) {
+    cout << "⚠️ Número inválido según la API, pero será guardado de todos modos.\n";
     }
+    
     newDonor.setNumber(stoll(phoneNumber));
 
     donors.push_back(newDonor);
