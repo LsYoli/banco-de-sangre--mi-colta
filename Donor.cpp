@@ -10,6 +10,8 @@
 * - Se implementa "trim()" para eliminar espacios en blanco al inicio y final de una cadena, asegurando datos limpios.
 *
 * @bug_fixer [Daniel Andres Micolta Gongora]
+* @bug_fixer [Luis Santiago Arenas Hincapie]
+* @mail [luis.arenas@correounivalle.edu.co]
 * @mail [micolta.daniel@correounivalle.edu.co]
 * @date 2025-05-03
 * @version 1.1

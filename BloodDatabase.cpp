@@ -16,6 +16,8 @@
 * - Se incluye "displayAllDonations()" para mostrar el historial completo de donaciones almacenadas.
 *
 * @bug_fixer [Daniel Andres Micolta Gongora]
+* @bug_fixer [Luis Santiago Arenas Hincapie]
+* @mail [luis.arenas@correounivalle.edu.co]
 * @mail [micolta.daniel@correounivalle.edu.co]
 * @date 2025-13-03
 * @version 1.2
