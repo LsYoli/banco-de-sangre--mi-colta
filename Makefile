@@ -1,19 +1,26 @@
 
+# Compilador
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall
-LDFLAGS = -lcurl
+CXXFLAGS = -std=c++17 -Wall -lcurl
 
+# Archivos fuente del proyecto
 SRC = main.cpp BloodDatabase.cpp Donor.cpp
-OBJ = $(SRC:.cpp=.o)
+
+# Archivos para pruebas unitarias
+TEST_SRC = tests/test_blood_database.cpp Donor.cpp BloodDatabase.cpp
+TEST_EXE = test_program
+GTEST_FLAGS = -lgtest -lgtest_main -pthread
+
+# Ejecutable principal
 TARGET = programa
 
 all: $(TARGET)
 
-$(TARGET): $(OBJ)
-	$(CXX) $(OBJ) -o $@ $(LDFLAGS)
+$(TARGET): $(SRC)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SRC)
 
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+test: $(TEST_SRC)
+	$(CXX) $(CXXFLAGS) $(GTEST_FLAGS) $(TEST_SRC) -o $(TEST_EXE) -lcurl
 
 clean:
-	rm -f $(OBJ) $(TARGET)
+	rm -f $(TARGET) $(TEST_EXE)

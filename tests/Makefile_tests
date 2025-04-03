@@ -1,0 +1,20 @@
+
+# Compilador y banderas
+CXX = g++
+CXXFLAGS = -std=c++17 -Wall
+LDFLAGS = -lgtest -lgtest_main -pthread -lcurl
+
+# Archivos fuente para pruebas
+TEST_SRC = tests/test_blood_database.cpp Donor.cpp BloodDatabase.cpp
+TEST_EXE = test_program
+
+# Regla por defecto
+all: $(TEST_EXE)
+
+# Cómo compilar el ejecutable de pruebas
+$(TEST_EXE): $(TEST_SRC)
+	$(CXX) $(CXXFLAGS) $(TEST_SRC) -o $(TEST_EXE) $(LDFLAGS)
+
+# Limpiar archivos generados
+clean:
+	rm -f $(TEST_EXE)
